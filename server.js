@@ -11,7 +11,10 @@ http
     const status = 200; // ok
     const mimeType = { 'Content-Type': 'text/plain' }; // plain text
     res.writeHead(status, mimeType);
-    res.end('Hello, World');
+    res.end('Hello, World'); // closing the connection
+    if (method === 'GET' && url === '/') {
+        
+    }
   })
   .listen(PORT);
 console.log(`Server is running at port ${PORT}...`);

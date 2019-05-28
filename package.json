@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "author": "Asabeneh",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
