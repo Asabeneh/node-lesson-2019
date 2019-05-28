@@ -2,6 +2,9 @@
 const http = require('http');
 const PORT = process.env.PORT || 5000;
 
+// custom modules
+const { displayDateTime, isEmpty, solveQuadratic } = require('./shared/utils');
+
 const students = [
   {
     id: 1,
@@ -55,5 +58,6 @@ http
     }
     res.end(); // closing the req and response cycle;
   })
+
   .listen(PORT);
 console.log(`Server is running at port ${PORT}...`);
