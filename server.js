@@ -1,5 +1,7 @@
 // node core modules
 const http = require('http');
+const fs = require('fs');
+const os = require('os');
 const PORT = process.env.PORT || 5000;
 
 // custom modules
@@ -52,10 +54,23 @@ http
         'We are just starting Node.js. I hope everybody is enjoying it.'
       );
     } else if (method === 'GET' && url === '/students') {
-      const mimeType = { 'Content-Type': 'application/json' }; // json type
+      mimeType = { 'Content-Type': 'application/json' }; // json type
       res.writeHead(status, mimeType);
       res.write(JSON.stringify(students));
     }
+    const hostname = os.hostname();
+    const platform = os.platform();
+    const content =
+      hostname +
+      'check the site' +
+      ' at ' +
+      displayDateTime() +
+      ' from ' +
+      platform +
+      '\n';
+    fs.appendFile('log.txt', content, () => {
+      res.end();
+    });
     res.end(); // closing the req and response cycle;
   })
 
